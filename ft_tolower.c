@@ -6,11 +6,11 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 01:25:23 by mleonet           #+#    #+#             */
-/*   Updated: 2023/03/24 01:25:24 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/03/24 01:33:07 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*ft_tolower(int i)
+int	ft_tolower(int i)
 {
 	if (i >= 'A' && i <= 'Z')
 		i += 32;
