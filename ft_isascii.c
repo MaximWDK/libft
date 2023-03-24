@@ -6,13 +6,13 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 01:25:07 by mleonet           #+#    #+#             */
-/*   Updated: 2023/03/24 01:25:07 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/03/24 01:36:46 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+int	ft_isascii(int i)
 {
-	if (c >= 0 && c <= 127)
+	if (i >= 0 && i <= 127)
 		return (1);
 	return (0);
 }

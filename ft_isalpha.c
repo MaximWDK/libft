@@ -6,13 +6,13 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 01:25:02 by mleonet           #+#    #+#             */
-/*   Updated: 2023/03/24 01:25:03 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/03/24 01:36:38 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+int	ft_isalpha(int i)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	if ((i >= 'A' && i <= 'Z') || (i >= 'a' && i <= 'z'))
 		return (1);
 	return (0);
 }

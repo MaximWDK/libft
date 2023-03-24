@@ -6,13 +6,13 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 01:24:28 by mleonet           #+#    #+#             */
-/*   Updated: 2023/03/24 01:25:15 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/03/24 01:37:01 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+int	ft_isprint(int i)
 {
-	if ((c >= 0 && c <= 127))
+	if ((i >= 0 && i <= 127))
 		return (1);
 	return (0);
 }
