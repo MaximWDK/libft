@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:38:43 by mleonet           #+#    #+#             */
-/*   Updated: 2023/04/10 14:38:16 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/04/10 15:31:42 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	i = 0;
 	j = 0;
-	if (len < 0)
-		return (NULL);
 	if (needle[i] == '\0')
 		return ((char *) haystack);
 	while (i < len && haystack[i])
