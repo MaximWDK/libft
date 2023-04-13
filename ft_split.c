@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:16:14 by mleonet           #+#    #+#             */
-/*   Updated: 2023/04/12 15:48:47 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/04/13 14:32:51 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_strlen_to_next_sep(char const *s, char charset)
 	return (i);
 }
 
-char	*ft_strdup(char const *s, char charset)
+char	*ft_strdupcharset(char const *s, char charset)
 {
 	char	*word;
 	int		word_len;
@@ -86,7 +86,7 @@ char	**ft_split(char const *s, char c)
 		while (*s && ft_check_sep(*s, c))
 			s++;
 		if (*s)
-			tab[j++] = ft_strdup(s, c);
+			tab[j++] = ft_strdupcharset(s, c);
 		while (*s && !ft_check_sep(*s, c))
 			s++;
 	}
