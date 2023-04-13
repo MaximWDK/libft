@@ -6,11 +6,19 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 14:42:28 by mleonet           #+#    #+#             */
-/*   Updated: 2023/04/13 14:43:15 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/04/13 15:13:28 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void *calloc(size_t count, size_t size)
+#include "libft.h"
+
+void	*ft_calloc(size_t count, size_t size)
 {
-	
+	void	*mem;
+
+	mem = malloc(count * size);
+	if (!mem)
+		return (NULL);
+	ft_bzero(mem, count * size);
+	return (mem);
 }
