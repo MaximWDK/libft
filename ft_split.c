@@ -6,18 +6,30 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:16:14 by mleonet           #+#    #+#             */
-/*   Updated: 2023/04/13 14:32:51 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/04/27 00:45:03 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_check_sep(char c, char charset)
+int	ft_check_sep(char c, char charset, char const *s, int type)
 {
-	if (!charset)
-		return (0);
-	if (c == charset || c == '\0')
-		return (1);
+	int	i;
+
+	if (type == 1)
+	{
+		if (c == charset)
+			return (1);
+		else
+			return (0);
+	}
+	else
+	{
+		i = 0;
+		while (s[i] && !ft_check_sep(s[i], charset, 0, 1))
+			i++;
+		return (i);
+	}
 	return (0);
 }
 
@@ -30,24 +42,14 @@ int	ft_countstr(char const *s, char charset)
 	j = 0;
 	while (s[i])
 	{
-		while (s[i] && ft_check_sep(s[i], charset))
+		while (s[i] && ft_check_sep(s[i], charset, 0, 1))
 			i++;
-		if (s[i] && !ft_check_sep(s[i], charset))
+		if (s[i] && !ft_check_sep(s[i], charset, 0, 1))
 			j++;
-		while (s[i] && !ft_check_sep(s[i], charset))
+		while (s[i] && !ft_check_sep(s[i], charset, 0, 1))
 			i++;
 	}
 	return (j);
-}
-
-int	ft_strlen_to_next_sep(char const *s, char charset)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] && !ft_check_sep(s[i], charset))
-		i++;
-	return (i);
 }
 
 char	*ft_strdupcharset(char const *s, char charset)
@@ -57,8 +59,8 @@ char	*ft_strdupcharset(char const *s, char charset)
 	int		i;
 
 	i = 0;
-	word_len = ft_strlen_to_next_sep(s, charset);
-	word = (char *) malloc(sizeof(char) * (word_len + 1));
+	word_len = ft_check_sep(0, charset, s, 0);
+	word = malloc(sizeof(char) * (word_len + 1));
 	if (!word)
 		return (0);
 	while (s[i] && i < word_len)
@@ -70,6 +72,20 @@ char	*ft_strdupcharset(char const *s, char charset)
 	return (word);
 }
 
+char	**ft_free_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
@@ -78,16 +94,20 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	if (!s)
 		return (0);
-	tab = (char **)malloc(sizeof(char *) * (ft_countstr(s, c) + 1));
+	tab = malloc(sizeof(char *) * (ft_countstr(s, c) + 1));
 	if (!tab)
 		return (0);
 	while (*s)
 	{
-		while (*s && ft_check_sep(*s, c))
+		while (*s && ft_check_sep(*s, c, 0, 1))
 			s++;
 		if (*s)
-			tab[j++] = ft_strdupcharset(s, c);
-		while (*s && !ft_check_sep(*s, c))
+		{
+			tab[j] = ft_strdupcharset(s, c);
+			if (!tab[j++])
+				return (ft_free_tab(tab));
+		}
+		while (*s && !ft_check_sep(*s, c, 0, 1))
 			s++;
 	}
 	tab[j] = 0;

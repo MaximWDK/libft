@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:55:43 by mleonet           #+#    #+#             */
-/*   Updated: 2023/04/26 15:53:00 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/04/26 20:35:25 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,14 @@ int	ft_findlen(long int n)
 	return (count);
 }
 
-char	*ft_itoa(int n)
+char	*ft_convert(int n, char *str, int len)
 {
-	char		*str;
-	int			save;
-	long int	len;
+	int	save;
 
 	save = n;
-	len = ft_findlen(n);
-	str = malloc(sizeof(char) * len + 1);
-	if (!str)
-		return (NULL);
 	str[len--] = 0;
 	if (n == 0)
-		str[0] = '0';
+	str[0] = '0';
 	if (n == -2147483648)
 	{
 		str[0] = '-';
@@ -62,5 +56,18 @@ char	*ft_itoa(int n)
 		str[len--] = save % 10 + '0';
 		save = save / 10;
 	}
+	return (str);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		len;
+
+	len = ft_findlen(n);
+	str = (char *) malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str = ft_convert(n, str, len);
 	return (str);
 }
