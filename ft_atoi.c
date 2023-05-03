@@ -6,9 +6,16 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 01:24:36 by mleonet           #+#    #+#             */
-/*   Updated: 2023/03/24 01:37:10 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/03 13:35:32 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+int	ft_check_overflow(long c)
+{
+	if (c <= 2147483647 && c >= -2147483648)
+		return (c);
+	return (0);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -34,5 +41,5 @@ int	ft_atoi(const char *str)
 		result += str[i] - '0';
 		i++;
 	}
-	return (result * sign);
+	return (ft_check_overflow(result * sign));
 }
