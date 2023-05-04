@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:16:14 by mleonet           #+#    #+#             */
-/*   Updated: 2023/04/27 00:45:03 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/04 16:17:51 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,7 @@ char	**ft_free_tab(char **tab)
 
 	i = 0;
 	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
+		free(tab[i++]);
 	free(tab);
 	return (NULL);
 }

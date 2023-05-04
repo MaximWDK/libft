@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:58:35 by mleonet           #+#    #+#             */
-/*   Updated: 2023/04/04 14:24:51 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/04 14:32:43 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	unsigned int	i;
+	size_t			i;
 	size_t			size;
 
 	i = 0;
