@@ -6,13 +6,13 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:16:14 by mleonet           #+#    #+#             */
-/*   Updated: 2023/05/04 16:17:51 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/08 14:17:46 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_check_sep(char c, char charset, char const *s, int type)
+int	ft_is_sep(char c, char charset, char const *s, int type)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	ft_check_sep(char c, char charset, char const *s, int type)
 	else
 	{
 		i = 0;
-		while (s[i] && !ft_check_sep(s[i], charset, 0, 1))
+		while (s[i] && s[i] != charset)
 			i++;
 		return (i);
 	}
@@ -42,11 +42,11 @@ int	ft_countstr(char const *s, char charset)
 	j = 0;
 	while (s[i])
 	{
-		while (s[i] && ft_check_sep(s[i], charset, 0, 1))
+		while (s[i] && ft_is_sep(s[i], charset, 0, 1))
 			i++;
-		if (s[i] && !ft_check_sep(s[i], charset, 0, 1))
+		if (s[i])
 			j++;
-		while (s[i] && !ft_check_sep(s[i], charset, 0, 1))
+		while (s[i] && !ft_is_sep(s[i], charset, 0, 1))
 			i++;
 	}
 	return (j);
@@ -59,7 +59,7 @@ char	*ft_strdupcharset(char const *s, char charset)
 	int		i;
 
 	i = 0;
-	word_len = ft_check_sep(0, charset, s, 0);
+	word_len = ft_is_sep(0, charset, s, 0);
 	word = malloc(sizeof(char) * (word_len + 1));
 	if (!word)
 		return (0);
@@ -96,7 +96,7 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	while (*s)
 	{
-		while (*s && ft_check_sep(*s, c, 0, 1))
+		while (*s && ft_is_sep(*s, c, 0, 1))
 			s++;
 		if (*s)
 		{
@@ -104,7 +104,7 @@ char	**ft_split(char const *s, char c)
 			if (!tab[j++])
 				return (ft_free_tab(tab));
 		}
-		while (*s && !ft_check_sep(*s, c, 0, 1))
+		while (*s && !ft_is_sep(*s, c, 0, 1))
 			s++;
 	}
 	tab[j] = 0;
