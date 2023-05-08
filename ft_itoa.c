@@ -6,13 +6,13 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:55:43 by mleonet           #+#    #+#             */
-/*   Updated: 2023/04/26 20:35:25 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/08 15:07:43 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_findlen(long int n)
+static int	ft_findlen(long int n)
 {
 	int	count;
 
@@ -32,7 +32,7 @@ int	ft_findlen(long int n)
 	return (count);
 }
 
-char	*ft_convert(int n, char *str, int len)
+static char	*ft_convert(int n, char *str, int len)
 {
 	int	save;
 

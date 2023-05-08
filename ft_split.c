@@ -6,13 +6,13 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:16:14 by mleonet           #+#    #+#             */
-/*   Updated: 2023/05/08 14:17:46 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/08 15:05:57 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_is_sep(char c, char charset, char const *s, int type)
+static int	ft_is_sep(char c, char charset, char const *s, int type)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ int	ft_is_sep(char c, char charset, char const *s, int type)
 	return (0);
 }
 
-int	ft_countstr(char const *s, char charset)
+static int	ft_countstr(char const *s, char charset)
 {
 	int	i;
 	int	j;
@@ -52,27 +52,24 @@ int	ft_countstr(char const *s, char charset)
 	return (j);
 }
 
-char	*ft_strdupcharset(char const *s, char charset)
+static char	*ft_strdupcharset(char const *s, char charset)
 {
 	char	*word;
 	int		word_len;
 	int		i;
 
-	i = 0;
+	i = -1;
 	word_len = ft_is_sep(0, charset, s, 0);
 	word = malloc(sizeof(char) * (word_len + 1));
 	if (!word)
 		return (0);
-	while (s[i] && i < word_len)
-	{
+	while (s[++i] && i < word_len)
 		word[i] = s[i];
-		i++;
-	}
 	word[i] = '\0';
 	return (word);
 }
 
-char	**ft_free_tab(char **tab)
+static char	**ft_free_tab(char **tab)
 {
 	int	i;
 

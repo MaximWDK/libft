@@ -6,40 +6,46 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 01:24:36 by mleonet           #+#    #+#             */
-/*   Updated: 2023/05/03 13:35:32 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/08 16:06:02 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_check_overflow(long c)
-{
-	if (c <= 2147483647 && c >= -2147483648)
-		return (c);
-	return (0);
-}
-
-int	ft_atoi(const char *str)
+static int	ft_sign(const char *str, int *sign)
 {
 	int	i;
-	int	sign;
-	int	result;
 
 	i = 0;
-	sign = 1;
-	result = 0;
+	*sign = 1;
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-')
 	{
-		sign = -1;
 		i++;
+		*sign = -1;
 	}
 	else if (str[i] == '+')
 		i++;
+	return (i);
+}
+
+int	ft_atoi(const char *str)
+{
+	int			i;
+	int			sign;
+	long int	result;
+	long int	temp;
+
+	temp = 0;
+	result = 0;
+	i = ft_sign(str, &sign);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result *= 10;
-		result += str[i] - '0';
-		i++;
+		result = result * 10 + str[i++] - '0';
+		if (temp > result && sign > 0)
+			return (-1);
+		else if (temp > result && sign < 0)
+			return (0);
+		temp = result;
 	}
-	return (ft_check_overflow(result * sign));
+	return (result * sign);
 }
