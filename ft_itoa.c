@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:55:43 by mleonet           #+#    #+#             */
-/*   Updated: 2023/05/08 15:07:43 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/09 20:03:44 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static char	*ft_convert(int n, char *str, int len)
 	int	save;
 
 	save = n;
-	str[len--] = 0;
+	str[len--] = '\0';
 	if (n == 0)
-	str[0] = '0';
+		str[0] = '0';
 	if (n == -2147483648)
 	{
 		str[0] = '-';

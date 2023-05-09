@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:02:56 by mleonet           #+#    #+#             */
-/*   Updated: 2023/04/06 14:22:29 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/09 19:53:17 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	unsigned char		*d;
 	const unsigned char	*s;
 
-	d = dst;
-	s = src;
+	d = (unsigned char *) dst;
+	s = (unsigned char *) src;
 	i = -1;
 	if (!src && !dst)
 		return (NULL);

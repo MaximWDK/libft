@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:30:06 by mleonet           #+#    #+#             */
-/*   Updated: 2023/04/13 15:36:26 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/09 18:26:18 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*res;
 
 	i = -1;
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	res = malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (!res)

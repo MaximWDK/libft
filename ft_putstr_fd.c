@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 16:45:40 by mleonet           #+#    #+#             */
-/*   Updated: 2023/05/09 14:18:24 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/09 20:02:17 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = -1;
+	if (fd < 0)
+		return ;
 	while (s[++i])
 		write(fd, &s[i], 1);
 }

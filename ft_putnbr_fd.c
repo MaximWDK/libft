@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:09:55 by mleonet           #+#    #+#             */
-/*   Updated: 2023/05/09 14:17:31 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/09 20:02:18 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
+	if (fd < 0)
+		return ;
 	if (n > 9)
 	{
 		ft_putnbr_fd(n / 10, fd);

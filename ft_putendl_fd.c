@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:06:46 by mleonet           #+#    #+#             */
-/*   Updated: 2023/05/09 14:18:36 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/09 20:02:18 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putendl_fd(char *s, int fd)
 	int	i;
 
 	i = -1;
+	if (fd < 0)
+		return ;
 	while (s[++i])
 		write(fd, &s[i], 1);
 	write(fd, "\n", 1);
