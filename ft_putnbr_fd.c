@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:09:55 by mleonet           #+#    #+#             */
-/*   Updated: 2023/04/10 13:17:12 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/09 14:17:31 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,5 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(n, fd);
 	}
 	else
-	{
 		ft_putchar_fd('0' + n, fd);
-	}
 }

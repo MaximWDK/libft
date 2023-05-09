@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 01:25:19 by mleonet           #+#    #+#             */
-/*   Updated: 2023/03/24 01:37:08 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/09 14:15:30 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
-	i = -1;
-	while (str[++i])
-		;
+	i = 0;
+	while (str[i])
+		i++;
 	return (i);
 }

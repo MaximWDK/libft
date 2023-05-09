@@ -6,7 +6,7 @@
 /*   By: mleonet <mleonet@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:29:29 by mleonet           #+#    #+#             */
-/*   Updated: 2023/04/13 15:15:19 by mleonet          ###   ########.fr       */
+/*   Updated: 2023/05/09 14:21:58 by mleonet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,11 @@ void	ft_bzero(void *s, size_t n)
 	size_t	i;
 	char	*str;
 
-	i = 0;
+	i = -1;
 	str = s;
 	if (n != 0)
 	{
-		while (i < n)
-		{
+		while (++i < n)
 			str[i] = 0;
-			i++;
-		}
 	}
 }
